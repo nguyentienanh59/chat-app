@@ -3,16 +3,19 @@ import Login from "./components/Login";
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ChatRoom from "./components/ChatRoom";
-import AuthProvider from "./components/Context/AuthProvider";
+import AuthProvider from "./Context/AuthProvider";
+import AppProvider from "./Context/AppProvider";
 
 function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <Switch>
-          <Route component={Login} path="/login" />
-          <Route component={ChatRoom} path="/" />
-        </Switch>
+        <AppProvider>
+          <Switch>
+            <Route component={Login} path="/login" />
+            <Route component={ChatRoom} path="/" />
+          </Switch>
+        </AppProvider>
       </AuthProvider>
     </BrowserRouter>
   );
