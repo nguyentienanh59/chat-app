@@ -18,8 +18,11 @@ export default function AuthProvider({ children }) {
         setUser({ displayName, email, uid, photoURL });
         setIsLoading(false);
         history.push("/");
+        return;
+      } else {
+        setIsLoading(false);
+        history.push("/login");
       }
-     else history.push('/login');
     });
 
     //clean function
